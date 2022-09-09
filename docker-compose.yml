@@ -1,0 +1,25 @@
+version: "3.6" # important, so that we can name our network
+
+services:
+  traefik:
+    image: "traefik:v2.2"
+    container_name: "traefik"
+    restart: always
+    networks:
+      - traefik-global-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - "./traefik.toml:/etc/traefik/traefik.toml"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    labels:
+      - "traefik.enable=true" # enable the dashboard
+      # - "traefik.http.routers.dashboard.rule=Host(`test.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))" # domain for dashboard
+      - "traefik.http.routers.dashboard.rule=Host(`test.localhost`)" # domain for dashboard
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.traefik.entrypoints=web"
+
+# this is the network that every container should connect to, in order to communicate with Traefik. We give it a nice name to type it easier.
+networks:
+  traefik-global-proxy:
+    name: "traefik-global-proxy"

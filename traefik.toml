@@ -1,0 +1,14 @@
+[log]
+  level = "DEBUG"
+
+[entryPoints]
+  [entryPoints.web]
+    address = ":80"
+    
+[api]
+  dashboard = true
+  insecure=false
+
+[providers.docker]
+  exposedByDefault = false
+  network = "traefik-global-proxy" # this is really important when you have multiple networks on a single container. This will tell Traefik to always look for network traefik-global-proxy and not any other internal networks.
