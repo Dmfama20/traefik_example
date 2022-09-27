@@ -1,5 +1,2 @@
-# traefik-vs-nginx-docker
-
 # Examples showing how to use Traefik 
-Add network
-docker network create traefik-global-proxy
+##Here, you will find some documentation soon, please be patient
