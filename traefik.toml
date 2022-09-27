@@ -11,4 +11,4 @@
 
 [providers.docker]
   exposedByDefault = false
-  network = "traefik-global-proxy" # this is really important when you have multiple networks on a single container. This will tell Traefik to always look for network traefik-global-proxy and not any other internal networks.
+  network = "traefik-global-proxy" 
