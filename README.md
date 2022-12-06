@@ -9,5 +9,5 @@ Afterwards, simply run the included docker-compose file
 
 ``docker-compose up -d``.
 
-Now, check if traefik is running properly, by visiting [traefik's dashboard](http://test.localhost).
+Now, check if traefik is running properly, by visiting traefik's dashboard at [test.localhost](http://test.localhost).
 
